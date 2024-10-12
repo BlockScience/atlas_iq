@@ -134,8 +134,9 @@ class ATLAS:
             entities_copy = list(self.entities.values())
             tasks = [entity.local_update(self.global_state) for entity in entities_copy]
             await asyncio.gather(*tasks)
-            await self.manage_autopoiesis()
-            await self.smooth_authority()
+            # await self.trigger_dynamic_refactor()
+            # await self.manage_autopoiesis()
+            # await self.smooth_authority()
             logger.info("Global update cycle completed.")
             await asyncio.sleep(self.update_interval)
 
