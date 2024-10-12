@@ -1,6 +1,6 @@
 import asyncio
 from atlas.core.atlas import ATLAS
-from atlas.core.entity import Entity
+from atlas.core.entity import Entity, EntityFactory
 from atlas.core.pattern import Pattern
 from atlas.core.iquery import iQuery
 from atlas.resources.openai_handler import OpenAIGPTHandler
@@ -162,7 +162,7 @@ async def run_simulation():
     openai_handler = OpenAIGPTHandler()
 
     try:
-        # Create and register patterns
+        # Create patterns
         patterns_dict = {}
         for pattern_data in patterns:
             pattern = Pattern(pattern_data['name'])
@@ -170,31 +170,40 @@ async def run_simulation():
                 iquery = iQuery(
                     iquery_data['name'],
                     iquery_data['target_attribute'],
-                    [openai_handler]  # openai_handler now has resource_handler_model
+                    [openai_handler]
                 )
                 pattern.add_iquery(iquery)
             patterns_dict[pattern_data['name']] = pattern
 
-
         # Create and register seed entities
         for entity_data in seed_entities:
-            entity = Entity(entity_data['entity_id'], patterns=[patterns_dict['PublicHealthDomain']], attributes=entity_data['attributes'])
+            entity = EntityFactory.create_entity({
+                **entity_data,
+                'patterns': [patterns_dict['PublicHealthDomain']]
+            })
             atlas.register_entity(entity)
-        print("ATLAS.ENTITIES: ", atlas.entities)
 
         # Run initial update cycles
         print("Running initial update cycles...")
-        for _ in range(5):
-            await atlas.global_update_cycle()
 
-        # Introduce scenarios and analyze
+        # Start the global update cycle as a background task
+        update_task = asyncio.create_task(atlas.global_update_cycle())
+
+        # Allow some time for initial updates
+        await asyncio.sleep(5)  # Adjust as needed
+
+        # Proceed with introducing scenarios and other operations
         for scenario in simulation_scenarios:
             print(f"\nIntroducing scenario: {scenario['name']}")
-            scenario_entity = Entity(scenario['name'], patterns=[patterns_dict['PublicHealthCapability']], attributes=scenario)
+            scenario_entity = EntityFactory.create_entity({
+                'entity_id': scenario['name'],
+                'patterns': [patterns_dict['PublicHealthCapability']],
+                'attributes': scenario
+            })
             atlas.register_entity(scenario_entity)
 
-            for _ in range(3):
-                await atlas.global_update_cycle()
+            # Allow updates to process the new scenario
+            await asyncio.sleep(3)  # Adjust as needed
 
             print(f"Analysis after {scenario['name']}:")
             atlas.perform_graph_analysis()
@@ -205,6 +214,13 @@ async def run_simulation():
                 print(f"Definition: {entity.attributes.get('definition', 'N/A')}")
                 print(f"Relevance to {scenario['name']}: {entity.attributes.get('relevance', 'N/A')}")
                 print(f"Authority: {entity.attributes.get('authority', 'N/A')}")
+
+        # Optionally, cancel the background update task if no longer needed
+        update_task.cancel()
+        try:
+            await update_task
+        except asyncio.CancelledError:
+            print("Global update cycle task cancelled.")
 
     finally:
         await openai_handler.close()
