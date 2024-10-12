@@ -1,0 +1,10 @@
+neomodel==5.1.1
+pydantic==2.3.0
+aiohttp==3.8.5
+asyncpg==0.28.0
+cachetools==5.3.1
+spacy==3.6.1
+networkx==3.1
+pydantic-settings
+numpy==1.23.5
+scipy==1.10.1

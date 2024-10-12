@@ -1,0 +1,15 @@
+*.pyc
+__pycache__
+*.egg-info
+.pytest_cache
+.tox
+.coverage
+htmlcov
+dist
+build
+.vscode
+.idea
+atlas.egg-info
+venv/
+neo4j/
+*.env
