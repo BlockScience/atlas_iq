@@ -7,9 +7,8 @@ ATLAS_IQ is a Python-based implementation of a dynamic, self-generating knowledg
 - [ATLAS\_IQ](#atlas_iq)
   - [Table of Contents](#table-of-contents)
   - [Features](#features)
-  - [Installation](#installation)
-  - [Usage](#usage)
   - [System Architecture](#system-architecture)
+  - [System Architecture](#system-architecture-1)
   - [Core Components](#core-components)
     - [ATLAS](#atlas)
     - [Entity](#entity)
@@ -50,52 +49,57 @@ ATLAS_IQ is a Python-based implementation of a dynamic, self-generating knowledg
 - Flexible resource handling (LLMs, APIs, databases)
 - Configurable system parameters
 
-+------------------+ +---------------------+
-| ATLAS |<---manages/triggers---| Global Update Cycle |<--+
-+------------------+ +---------------------+ |
-| |
-| triggers Local Update Cycles |
-v |
-+-------------------+ |
-| Entities |<--------------------------------------------+
-| (e.g., Concepts, | |
-| Scenarios, etc.) | |
-+---------+---------+ |
-| |
-| perform Local Update Cycles |
-v |
-+-------------------+ +------------------+ |
-| Patterns |----use---->| iQueries | |
-| (with Conditional | +------------------+ |
-| Type Assertions) | |
-+-------------------+ |
-| |
-| influence behavior via |
-| Conditional Type Assertions |
-v |
-+-------------------+ |
-| Resource Handlers|<---process iQueries---+ |
-+-------------------+ | |
-| \ |
-| interact with +------------------+ |
-v | External Sources| |
-+-------------------+ (LLMs, APIs, | (LLMs, APIs, | |
-| Responses from |<-----Databases, etc.)--| Databases, etc.)| |
-| External Sources | +-----------------+| |
-+-------------------+ |
-| |
-| update Entities / create New Entities |
-v |
-+-------------------+ |
-| Entities |-----feedback loop to Local Update Cycles----+
-| (Newly Created) |
+## System Architecture
+
+The following diagram illustrates the high-level architecture of the ATLAS_IQ system:
+
+```ascii
++------------------+                       +---------------------+
+|      ATLAS       |<---manages/triggers---| Global Update Cycle |<--+
++------------------+                       +---------------------+   |
+        |                                                            |
+        | triggers Local Update Cycles                               |
+        v                                                            |
++-------------------+                                                |
+|     Entities      |<-----------------------------------------------+
+| (e.g., Concepts,  |                                                |
+|  Scenarios, etc.) |                                                |
++---------+---------+                                                |
+          |                                                          |
+          | perform Local Update Cycles                              |
+          v                                                          |
++-------------------+            +------------------+                |
+|     Patterns      |----use---->|      iQueries    |                |
+| (with Conditional |            +------------------+                |
+|  Type Assertions) |                                                |
++-------------------+                                                |
+          |                                                          |
+          | influence behavior via                                   |
+          | Conditional Type Assertions                              |
+          v                                                          |
++-------------------+                                                |
+|  Resource Handlers|<---process iQueries---+                        |
++-------------------+                       |                        |
+          |                                    \                     |
+          | interact with                    +------------------+    |
+          v                                  |  External Sources|    |
++-------------------+      (LLMs, APIs,      |  (LLMs, APIs,    |    |
+| Responses from    |<-----Databases, etc.)--|  Databases, etc.)|    |
+| External Sources  |                        +-----------------+|    |
++-------------------+                                                |
+          |                                                          |
+          | update Entities / create New Entities                    |
+          v                                                          |
++-------------------+                                                |
+|   Entities        |-----feedback loop to Local Update Cycles-------+
+| (Newly Created)   |
 +---------+---------+
-|
-| may execute Functions influencing behavior
-v
+          |
+          | may execute Functions influencing behavior
+          v
 +-------------------+
-| Functions |
-| - Semantic Crawl |
+|   Functions       |
+| - Semantic Crawl  |
 | - Dynamic Refactor|
 | - Auth. Smoothing |
 +-------------------+
@@ -158,7 +162,7 @@ NEO4J_PORT=7687
 OPENAI_API_KEY=<your_openai_api_key>
 ATLAS_UPDATE_INTERVAL=60
 
-```
+````
 
 7. You're now ready to run the ATLAS_IQ system!
 
@@ -170,7 +174,7 @@ ATLAS_UPDATE_INTERVAL=60
 from atlas.core.atlas import ATLAS
 
 atlas = ATLAS()
-```
+````
 
 2. Create initial entities and patterns:
 
