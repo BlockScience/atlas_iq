@@ -10,6 +10,7 @@ ATLAS_IQ is a Python-based implementation of a dynamic, self-generating knowledg
   - [System Architecture](#system-architecture)
   - [Installation](#installation)
   - [Usage](#usage)
+  - [Running the Public Health Wiki Example](#running-the-public-health-wiki-example)
   - [System Architecture](#system-architecture-1)
   - [Core Components](#core-components)
     - [ATLAS](#atlas)
@@ -202,6 +203,39 @@ atlas.run()
 ```
 
 This will start the global update cycle, which will continually update entities, generate new knowledge, and refactor the knowledge structure as needed.
+
+Certainly! I'll replace the content in the README.md file with instructions for running the simulation.py script instead. Here's the updated section:
+
+## Running the Public Health Wiki Example
+
+To run the public health wiki simulation:
+
+1. Ensure you have set up the environment as described in the Installation section.
+
+2. Navigate to the `examples/public_health_wiki` directory:
+
+```bash
+cd examples/public_health_wiki
+```
+
+3. Run the simulation script:
+
+```bash
+python simulation.py
+```
+
+This will start the simulation, which includes:
+
+- Initializing the ATLAS system
+- Creating seed entities and patterns for public health domains
+- Running initial update cycles
+- Introducing simulation scenarios (e.g., COVID-19 Pandemic, Climate Change Health Impact)
+- Performing graph analysis after each scenario
+- Displaying updated knowledge base information
+
+The simulation will demonstrate how the ATLAS system dynamically generates and updates knowledge about various public health domains and scenarios.
+
+You can modify the `simulation.py` script to adjust parameters, add new scenarios, or change the behavior of the simulation as needed.
 
 ## System Architecture
 
@@ -489,3 +523,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 For more information on the theoretical background of this project, please refer to the original paper: "Prompt Crawling: Using Graph Automata to Enable Autopoiesis and Self-Generation in Knowledge Repositories" by R.J. Cordes.
+
+```
+
+```
