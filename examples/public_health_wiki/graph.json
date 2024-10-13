@@ -1,0 +1,271 @@
+[
+  {
+    "identity": 0,
+    "labels": ["ResourceHandlerModel"],
+    "properties": {
+      "uid": "761e27e710f442f091a996be2db6704e",
+      "handler_type": "OpenAI",
+      "config": "{\"model\": \"gpt-4\"}"
+    },
+    "elementId": "0"
+  },
+  {
+    "identity": 1,
+    "labels": ["PatternModel"],
+    "properties": {
+      "uid": "ea2dbbc2d3864d679cc9d20f00c263c0",
+      "name": "PublicHealthDomain"
+    },
+    "elementId": "1"
+  },
+  {
+    "identity": 2,
+    "labels": ["IQueryModel"],
+    "properties": {
+      "uid": "fd45de79c1144f1a9747a327b3f3e3d2",
+      "name": "Definition",
+      "target_attribute": "definition",
+      "conditions": "[]",
+      "status": "completed"
+    },
+    "elementId": "2"
+  },
+  {
+    "identity": 3,
+    "labels": ["IQueryModel"],
+    "properties": {
+      "uid": "76b9472d9016412db0ee1709dbc80f7e",
+      "name": "KeyCapabilities",
+      "target_attribute": "key_capabilities",
+      "conditions": "[]",
+      "status": "completed"
+    },
+    "elementId": "3"
+  },
+  {
+    "identity": 4,
+    "labels": ["IQueryModel"],
+    "properties": {
+      "uid": "5ffe47b6f9424e339a0f0aa013f1c031",
+      "name": "RelatedDomains",
+      "target_attribute": "related_domains",
+      "conditions": "[]",
+      "status": "executing"
+    },
+    "elementId": "4"
+  },
+  {
+    "identity": 5,
+    "labels": ["IQueryModel"],
+    "properties": {
+      "uid": "27722f7781dc4393840c3a5ac46efea0",
+      "name": "HistoricalContext",
+      "target_attribute": "historical_context",
+      "conditions": "[]",
+      "status": "executing"
+    },
+    "elementId": "5"
+  },
+  {
+    "identity": 6,
+    "labels": ["PatternModel"],
+    "properties": {
+      "uid": "dbb5a519d6c74dbb9117640823cd3c29",
+      "name": "PublicHealthCapability"
+    },
+    "elementId": "6"
+  },
+  {
+    "identity": 7,
+    "labels": ["IQueryModel"],
+    "properties": {
+      "uid": "e59a63bd3d6147bd9936cc67d9617f3c",
+      "name": "CapabilityDescription",
+      "target_attribute": "description",
+      "conditions": "[]",
+      "status": "pending"
+    },
+    "elementId": "7"
+  },
+  {
+    "identity": 8,
+    "labels": ["IQueryModel"],
+    "properties": {
+      "uid": "1f6a851c30fc4d2582595e7efd1bb241",
+      "name": "RequiredSkills",
+      "target_attribute": "required_skills",
+      "conditions": "[]",
+      "status": "pending"
+    },
+    "elementId": "8"
+  },
+  {
+    "identity": 9,
+    "labels": ["IQueryModel"],
+    "properties": {
+      "uid": "5542afc6ab90481db234dee25b001fe9",
+      "name": "ApplicationScenarios",
+      "target_attribute": "application_scenarios",
+      "conditions": "[]",
+      "status": "pending"
+    },
+    "elementId": "9"
+  },
+  {
+    "identity": 10,
+    "labels": ["IQueryModel"],
+    "properties": {
+      "uid": "20f4f0a3689c4ca58841efab91d39b35",
+      "name": "TechnologicalTools",
+      "target_attribute": "technological_tools",
+      "conditions": "[]",
+      "status": "pending"
+    },
+    "elementId": "10"
+  },
+  {
+    "identity": 11,
+    "labels": ["PatternModel"],
+    "properties": {
+      "uid": "d8ed47709d274996a2bfdd5c5eedad21",
+      "name": "PublicHealthScenario"
+    },
+    "elementId": "11"
+  },
+  {
+    "identity": 12,
+    "labels": ["IQueryModel"],
+    "properties": {
+      "uid": "b93bede2ede04b1fb0e404bffd4ea61f",
+      "name": "ScenarioImpact",
+      "target_attribute": "impact",
+      "conditions": "[]",
+      "status": "pending"
+    },
+    "elementId": "12"
+  },
+  {
+    "identity": 13,
+    "labels": ["IQueryModel"],
+    "properties": {
+      "uid": "b9565cb71dec45b1974b829e37a3acb7",
+      "name": "RequiredResponses",
+      "target_attribute": "required_responses",
+      "conditions": "[]",
+      "status": "pending"
+    },
+    "elementId": "13"
+  },
+  {
+    "identity": 14,
+    "labels": ["IQueryModel"],
+    "properties": {
+      "uid": "d3bae916b595481499f1c5f3ab74fbba",
+      "name": "RelevantDomains",
+      "target_attribute": "relevant_domains",
+      "conditions": "[]",
+      "status": "pending"
+    },
+    "elementId": "14"
+  },
+  {
+    "identity": 15,
+    "labels": ["EntityModel"],
+    "properties": {
+      "uid": "4ae9a830ddf34d73bab92bed67f5ecab",
+      "attributes": "{\"name\": \"Epidemiology\", \"description\": \"The study of how diseases spread in populations\", \"references\": [\"Biostatistics\", \"Infectious_Disease_Control\"], \"definition\": null, \"key_capabilities\": null, \"authority\": 0.511847002880903, \"related_domains\": null}",
+      "entity_id": "Epidemiology"
+    },
+    "elementId": "15"
+  },
+  {
+    "identity": 16,
+    "labels": ["EntityModel"],
+    "properties": {
+      "uid": "e335706f5cb941bb8aec85d582282bf9",
+      "attributes": "{\"name\": \"Environmental Health\", \"description\": \"The branch of public health concerned with environmental factors affecting human health\", \"references\": [\"Health_Policy\", \"Health_Promotion\"], \"definition\": null, \"key_capabilities\": null, \"authority\": 1.2645722937193062, \"related_domains\": null}",
+      "entity_id": "Environmental_Health"
+    },
+    "elementId": "16"
+  },
+  {
+    "identity": 17,
+    "labels": ["EntityModel"],
+    "properties": {
+      "uid": "98c9a31d963444bda59fe287287e406b",
+      "attributes": "{\"name\": \"Health Policy\", \"description\": \"Decisions, plans, and actions undertaken to achieve specific healthcare goals in a society\", \"references\": [\"Health_Promotion\"], \"definition\": null, \"key_capabilities\": null, \"authority\": -0.19322090490377292, \"related_domains\": null}",
+      "entity_id": "Health_Policy"
+    },
+    "elementId": "17"
+  },
+  {
+    "identity": 18,
+    "labels": ["EntityModel"],
+    "properties": {
+      "uid": "3096882f357445599d41a22aed512a58",
+      "attributes": "{\"name\": \"Infectious Disease Control\", \"description\": \"Measures to prevent and control the spread of infectious diseases\", \"references\": [\"Epidemiology\", \"Biostatistics\"], \"definition\": null, \"key_capabilities\": null, \"authority\": 0.20460746947957256}",
+      "entity_id": "Infectious_Disease_Control"
+    },
+    "elementId": "18"
+  },
+  {
+    "identity": 19,
+    "labels": ["EntityModel"],
+    "properties": {
+      "uid": "6ebb3253244a4f3fa32e5cb89fc9c04c",
+      "attributes": "{\"name\": \"Biostatistics\", \"description\": \"The application of statistics to biological fields including public health\", \"references\": [\"Epidemiology\"], \"definition\": null, \"key_capabilities\": null, \"authority\": 0.638262772816402, \"related_domains\": null}",
+      "entity_id": "Biostatistics"
+    },
+    "elementId": "19"
+  },
+  {
+    "identity": 20,
+    "labels": ["EntityModel"],
+    "properties": {
+      "uid": "2de2762827224ef9803e612ddd1c79c8",
+      "attributes": "{\"name\": \"Health Promotion\", \"description\": \"The process of enabling people to increase control over, and to improve, their health\", \"references\": [\"Environmental_Health\", \"Health_Policy\"], \"definition\": null, \"key_capabilities\": null, \"authority\": 2.2786805357060986}",
+      "entity_id": "Health_Promotion"
+    },
+    "elementId": "20"
+  },
+  {
+    "identity": 21,
+    "labels": ["EntityModel"],
+    "properties": {
+      "uid": "8443e26b04884b60b13fdd1d73ee45ac",
+      "attributes": "{\"name\": \"COVID-19 Pandemic\", \"description\": \"A global outbreak of a novel coronavirus\", \"focus_areas\": [\"Epidemiology\", \"Infectious_Disease_Control\", \"Health_Policy\"]}",
+      "entity_id": "COVID-19 Pandemic"
+    },
+    "elementId": "21"
+  },
+  {
+    "identity": 22,
+    "labels": ["EntityModel"],
+    "properties": {
+      "uid": "195630a8beaf4c71838be180d70b3d74",
+      "attributes": "{\"name\": \"Climate Change Health Impact\", \"description\": \"Addressing health issues arising from global climate change\", \"focus_areas\": [\"Environmental_Health\", \"Health_Policy\", \"Health_Promotion\"]}",
+      "entity_id": "Climate Change Health Impact"
+    },
+    "elementId": "22"
+  },
+  {
+    "identity": 23,
+    "labels": ["EntityModel"],
+    "properties": {
+      "uid": "9f822ed2394d40ff9b3caa4c661851cc",
+      "attributes": "{\"name\": \"Opioid Crisis\", \"description\": \"A widespread misuse of opioid drugs, including prescription painkillers and illicit drugs like heroin\", \"focus_areas\": [\"Health_Policy\", \"Health_Promotion\", \"Epidemiology\"]}",
+      "entity_id": "Opioid Crisis"
+    },
+    "elementId": "23"
+  },
+  {
+    "identity": 24,
+    "labels": ["EntityModel"],
+    "properties": {
+      "uid": "92f8fa215c7d4f789015240b8d5c2b22",
+      "attributes": "{\"name\": \"Antimicrobial Resistance\", \"description\": \"The ability of microorganisms to resist the effects of drugs that once could successfully treat them\", \"focus_areas\": [\"Infectious_Disease_Control\", \"Health_Policy\", \"Biostatistics\"]}",
+      "entity_id": "Antimicrobial Resistance"
+    },
+    "elementId": "24"
+  }
+]

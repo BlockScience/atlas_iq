@@ -50,32 +50,117 @@ ATLAS_IQ is a Python-based implementation of a dynamic, self-generating knowledg
 - Flexible resource handling (LLMs, APIs, databases)
 - Configurable system parameters
 
++------------------+ +---------------------+
+| ATLAS |<---manages/triggers---| Global Update Cycle |<--+
++------------------+ +---------------------+ |
+| |
+| triggers Local Update Cycles |
+v |
++-------------------+ |
+| Entities |<--------------------------------------------+
+| (e.g., Concepts, | |
+| Scenarios, etc.) | |
++---------+---------+ |
+| |
+| perform Local Update Cycles |
+v |
++-------------------+ +------------------+ |
+| Patterns |----use---->| iQueries | |
+| (with Conditional | +------------------+ |
+| Type Assertions) | |
++-------------------+ |
+| |
+| influence behavior via |
+| Conditional Type Assertions |
+v |
++-------------------+ |
+| Resource Handlers|<---process iQueries---+ |
++-------------------+ | |
+| \ |
+| interact with +------------------+ |
+v | External Sources| |
++-------------------+ (LLMs, APIs, | (LLMs, APIs, | |
+| Responses from |<-----Databases, etc.)--| Databases, etc.)| |
+| External Sources | +-----------------+| |
++-------------------+ |
+| |
+| update Entities / create New Entities |
+v |
++-------------------+ |
+| Entities |-----feedback loop to Local Update Cycles----+
+| (Newly Created) |
++---------+---------+
+|
+| may execute Functions influencing behavior
+v
++-------------------+
+| Functions |
+| - Semantic Crawl |
+| - Dynamic Refactor|
+| - Auth. Smoothing |
++-------------------+
+
 ## Installation
 
 1. Clone the repository:
 
-   ```
-   git clone https://github.com/yourusername/promptcrawling.git
-   cd promptcrawling
-   ```
+```
 
-2. Install dependencies:
+git clone https://github.com/BlockScience/atlas_iq.git
+cd atlas_iq
 
-   ```
-   pip install -r requirements.txt
-   ```
+```
 
-3. Set up Neo4j database and obtain OpenAI API key.
+2. Set up a Python virtual environment:
 
-4. Create a `.env` file in the project root and add your configuration:
-   ```
-   NEO4J_USERNAME=your_username
-   NEO4J_PASSWORD=your_password
-   NEO4J_HOST=localhost
-   NEO4J_PORT=7687
-   OPENAI_API_KEY=your_openai_api_key
-   ATLAS_UPDATE_INTERVAL=60
-   ```
+```
+
+python -m venv venv
+source venv/bin/activate # On Windows use `venv\Scripts\activate`
+
+```
+
+3. Install dependencies:
+
+```
+
+pip install -r requirements.txt
+
+```
+
+4. Set up Neo4j using Docker Compose:
+
+The project includes a `docker-compose.yml` file. To start Neo4j, run:
+
+```
+
+docker-compose up -d
+
+```
+
+This will start a Neo4j 5.11.0 instance with the following configuration:
+
+- Web interface available at http://localhost:7474
+- Bolt port: 7687
+- Initial password: password (you should change this in production)
+- Memory settings: 1G for page cache, 1G for heap (initial and max)
+
+5. Obtain an OpenAI API key from [OpenAI's website](https://openai.com/).
+
+6. Create a `.env` file in the project root and add your configuration:
+
+```
+
+NEO4J_USERNAME=neo4j
+NEO4J_PASSWORD=password
+NEO4J_HOST=localhost
+NEO4J_PORT=7687
+OPENAI_API_KEY=<your_openai_api_key>
+ATLAS_UPDATE_INTERVAL=60
+
+```
+
+7. You're now ready to run the ATLAS_IQ system!
 
 ## Usage
 
