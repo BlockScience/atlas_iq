@@ -8,6 +8,8 @@ ATLAS_IQ is a Python-based implementation of a dynamic, self-generating knowledg
   - [Table of Contents](#table-of-contents)
   - [Features](#features)
   - [System Architecture](#system-architecture)
+  - [Installation](#installation)
+  - [Usage](#usage)
   - [System Architecture](#system-architecture-1)
   - [Core Components](#core-components)
     - [ATLAS](#atlas)
@@ -103,6 +105,7 @@ The following diagram illustrates the high-level architecture of the ATLAS_IQ sy
 | - Dynamic Refactor|
 | - Auth. Smoothing |
 +-------------------+
+```
 
 ## Installation
 
@@ -162,7 +165,7 @@ NEO4J_PORT=7687
 OPENAI_API_KEY=<your_openai_api_key>
 ATLAS_UPDATE_INTERVAL=60
 
-````
+```
 
 7. You're now ready to run the ATLAS_IQ system!
 
@@ -174,7 +177,7 @@ ATLAS_UPDATE_INTERVAL=60
 from atlas.core.atlas import ATLAS
 
 atlas = ATLAS()
-````
+```
 
 2. Create initial entities and patterns:
 
